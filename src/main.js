@@ -47,6 +47,40 @@ capsuleMesh.castShadow = true;
 capsuleMesh.receiveShadow = true;
 scene.add(capsuleMesh);
 
+const cylinderGeometry = new THREE.CylinderGeometry(1,1,2);
+const cylinderMaterial = new THREE.MeshStandardMaterial({color : 0x00ff00});
+const cylinderMesh = new THREE.Mesh(cylinderGeometry, cylinderMaterial);
+cylinderMesh.position.set(-3,1,0);
+cylinderMesh.castShadow = true;
+cylinderMesh.recieveShadow = true;
+scene.add(cylinderMesh);
+
+const torusGeometry = new THREE.TorusGeometry(0.5, 0.1, 16, 100);
+const torusMaterial = new THREE.MeshStandardMaterial({ color: 0x0000ff });
+const torusMesh = new THREE.Mesh(torusGeometry, torusMaterial);
+torusMesh.position.set(0,0.5,1);
+torusMesh.castShadow = true;
+torusMesh.receiveShadow = true;
+scene.add(torusMesh);
+
+const starShape = new THREE.Shape();
+starShape.moveTo(0,1);
+starShape.lineTo(0.2,0.2)
+starShape.lineTo(1,0.2);
+starShape.lineTo(0.4,-0.1);
+starShape.lineTo(0.6,-1);
+starShape.lineTo(0, -0.5);
+starShape.lineTo(-0.6, -1);
+starShape.lineTo(-0.4, -0.1);
+starShape.lineTo(-1, 0.2);
+starShape.lineTo(-0.2, 0.2);
+
+const shapeGeometry = new THREE.ShapeGeometry(starShape);
+const shapeMaterial = new THREE.MeshStandardMaterial({color : 0xff00ff});
+const shapeMesh = new THREE.Mesh(shapeGeometry, shapeMaterial);
+shapeMesh.position.set(0,1,2);
+scene.add(shapeMesh);
+
 const orbitControls = new OrbitControls(camera, renderer.domElement);
 orbitControls.update();
 
