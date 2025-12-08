@@ -60,7 +60,7 @@ const cylinderMaterial = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
 const cylinderMesh = new THREE.Mesh(cylinderGeometry, cylinderMaterial);
 cylinderMesh.position.set(-3, 1, 0);
 cylinderMesh.castShadow = true;
-cylinderMesh.recieveShadow = true;
+cylinderMesh.receiveShadow = true;
 scene.add(cylinderMesh);
 
 // Torus Geometry
@@ -94,41 +94,42 @@ scene.add(shapeMesh);
 
 // 3D Star Shape
 const extrudeSettings = {
-  steps : 1,
-  depth : 0.1,
-  bevelEnabled : true,
-  bevelThickness : 0.1,
-  bevelSize : 0.3,
-  bevelSegments : 100,
-}
+  steps: 1,
+  depth: 0.1,
+  bevelEnabled: true,
+  bevelThickness: 0.1,
+  bevelSize: 0.3,
+  bevelSegments: 100,
+};
 
 const extrudeGeometry = new THREE.ExtrudeGeometry(starShape, extrudeSettings);
-const extrudeMaterial = new THREE.MeshStandardMaterial({color : 0x0ddaaf});
-const extrudeMesh = new THREE.Mesh(extrudeGeometry,extrudeMaterial)
+const extrudeMaterial = new THREE.MeshStandardMaterial({ color: 0x0ddaaf });
+const extrudeMesh = new THREE.Mesh(extrudeGeometry, extrudeMaterial);
 extrudeMesh.position.set(2, 1.3, 2);
 extrudeMesh.castShadow = true;
 extrudeMesh.receiveShadow = true;
-scene.add(extrudeMesh)
+scene.add(extrudeMesh);
 
 // Sphere Geometry
 const sphereGeometry = new THREE.SphereGeometry(1, 32, 32);
-const sphereMaterial = new THREE.MeshStandardMaterial({color : 0x98daaf})
+const sphereMaterial = new THREE.MeshStandardMaterial({ color: 0x98daaf });
 const sphereMesh = new THREE.Mesh(sphereGeometry, sphereMaterial);
-sphereMesh.position.set(0, 1, -3)
+sphereMesh.position.set(0, 1, -3);
 sphereMesh.castShadow = true;
-scene.add(sphereMesh)
+scene.add(sphereMesh);
 
+// Dot Geometry
 const numPoints = 1000;
 const positions = new Float32Array(numPoints * 3);
 
-for (let i=0; i<numPoints; i+=1){
+for (let i = 0; i < numPoints; i += 1) {
   const x = (Math.random() - 0.5) * 1;
   const y = (Math.random() - 0.5) * 1;
   const z = (Math.random() - 0.5) * 1;
 
-  positions[i*3] = x
-  positions[i*3 + 1] = y
-  positions[i*3 + 2] = z
+  positions[i * 3] = x;
+  positions[i * 3 + 1] = y;
+  positions[i * 3 + 2] = z;
 }
 
 const bufferGeometry = new THREE.BufferGeometry();
@@ -138,14 +139,13 @@ bufferGeometry.setAttribute(
 );
 
 const PointsMaterial = new THREE.PointsMaterial({
-  color : 0xffff00,
-  size : 0.05
+  color: 0xffff00,
+  size: 0.05,
 });
 
-const point = new THREE.Points(sphereGeometry, PointsMaterial)
-point.position.set(0,0,-5)
-scene.add(point)
-
+const point = new THREE.Points(sphereGeometry, PointsMaterial);
+point.position.set(0, 0, -5);
+scene.add(point);
 
 // Orbit Controls
 const orbitControls = new OrbitControls(camera, renderer.domElement);
