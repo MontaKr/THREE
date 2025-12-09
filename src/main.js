@@ -38,53 +38,70 @@ floor.receiveShadow = true;
 floor.castShadow = true;
 scene.add(floor);
 
-const frontSideGeometry = new THREE.BoxGeometry(1,1,1)
-const frontSideMaterial = new THREE.MeshStandardMaterial({color : 0x00ffff, side: THREE.FrontSide})
+const frontSideGeometry = new THREE.BoxGeometry(1, 1, 1);
+const frontSideMaterial = new THREE.MeshStandardMaterial({
+  color: 0x00ffff,
+  side: THREE.FrontSide,
+});
 const frontSideMesh = new THREE.Mesh(frontSideGeometry, frontSideMaterial);
 frontSideMesh.position.y = 0.5;
 frontSideMesh.position.z = 4;
-frontSideMesh.castShadow = true
-frontSideMesh.receiveShadow = true
-scene.add(frontSideMesh)
+frontSideMesh.castShadow = true;
+frontSideMesh.receiveShadow = true;
+scene.add(frontSideMesh);
 
-const backSideGeometry = new THREE.BoxGeometry(1,1,1);
-const backSideMaterial = new THREE.MeshStandardMaterial({color : 0x00ff00, side : THREE.BackSide})
+const backSideGeometry = new THREE.BoxGeometry(1, 1, 1);
+const backSideMaterial = new THREE.MeshStandardMaterial({
+  color: 0x00ff00,
+  side: THREE.BackSide,
+});
 const backSideMesh = new THREE.Mesh(backSideGeometry, backSideMaterial);
-backSideMesh.position.set(2,0.5,4)
-backSideMesh.position.y = 0.51 // z fighting
+backSideMesh.position.set(2, 0.5, 4);
+backSideMesh.position.y = 0.51; // z fighting
 // backSideMesh.castShadow = true
-backSideMesh.receiveShadow = true
-scene.add(backSideMesh)
+backSideMesh.receiveShadow = true;
+scene.add(backSideMesh);
 
-const doubleSideGeometry = new THREE.BoxGeometry(1,1,1);
-const doubleSideMaterial = new THREE.MeshStandardMaterial({color : 0x00ff00, side : THREE.DoubleSide});
-const doubleSideMesh = new THREE.Mesh(doubleSideGeometry,doubleSideMaterial)
-doubleSideMesh.position.set(4,0.5,4);
+const doubleSideGeometry = new THREE.BoxGeometry(1, 1, 1);
+const doubleSideMaterial = new THREE.MeshStandardMaterial({
+  color: 0x00ff00,
+  side: THREE.DoubleSide,
+});
+const doubleSideMesh = new THREE.Mesh(doubleSideGeometry, doubleSideMaterial);
+doubleSideMesh.position.set(4, 0.5, 4);
 doubleSideMesh.position.y = 0.51;
-doubleSideMesh.receiveShadow = true
+doubleSideMesh.receiveShadow = true;
 // doubleSideMesh.castShadow = true
-scene.add(doubleSideMesh)
+scene.add(doubleSideMesh);
 
-const torusKnotGeometry = new THREE.TorusKnotGeometry(0.5,0.15,100,20) 
-const torusKnotStandMaterial = new THREE.MeshStandardMaterial({color : 0xff0000})
+const torusKnotGeometry = new THREE.TorusKnotGeometry(0.5, 0.15, 100, 20);
+const torusKnotStandMaterial = new THREE.MeshStandardMaterial({
+  color: 0xff0000,
+});
 torusKnotStandMaterial.roughness = 0.5;
 torusKnotStandMaterial.metalness = 1;
-const torusKnotStandardMesh = new THREE.Mesh(torusKnotGeometry, torusKnotStandMaterial)
+const torusKnotStandardMesh = new THREE.Mesh(
+  torusKnotGeometry,
+  torusKnotStandMaterial
+);
 torusKnotStandardMesh.castShadow = true;
 torusKnotStandardMesh.receiveShadow = true;
-torusKnotStandardMesh.position.set(-4,1,0)
-scene.add(torusKnotStandardMesh)
+torusKnotStandardMesh.position.set(-4, 1, 0);
+scene.add(torusKnotStandardMesh);
 
-const torusKnotLambertMaterial = new THREE.MeshLambertMaterial({color : 0xff0000})
-torusKnotLambertMaterial.emissive = new THREE.Color(0x00ff00)
+const torusKnotLambertMaterial = new THREE.MeshLambertMaterial({
+  color: 0xff0000,
+});
+torusKnotLambertMaterial.emissive = new THREE.Color(0x00ff00);
 torusKnotLambertMaterial.emissiveIntensity = 0.2;
-const torusKnotLambertMesh = new THREE.Mesh(torusKnotGeometry, torusKnotLambertMaterial)
+const torusKnotLambertMesh = new THREE.Mesh(
+  torusKnotGeometry,
+  torusKnotLambertMaterial
+);
 torusKnotLambertMesh.castShadow = true;
 torusKnotLambertMesh.receiveShadow = true;
-torusKnotLambertMesh.position.set(-2,1,0)
-scene.add(torusKnotLambertMesh)
-
-
+torusKnotLambertMesh.position.set(-2, 1, 0);
+scene.add(torusKnotLambertMesh);
 
 // // Box Geometry
 // const geometry = new THREE.BoxGeometry(1, 1, 1);
