@@ -103,6 +103,61 @@ torusKnotLambertMesh.receiveShadow = true;
 torusKnotLambertMesh.position.set(-2, 1, 0);
 scene.add(torusKnotLambertMesh);
 
+const torusKnotPhongMaterial = new THREE.MeshPhongMaterial({ color: 0xff0000 });
+torusKnotPhongMaterial.emissive = new THREE.Color(0x00ff00);
+torusKnotPhongMaterial.emissiveIntensity = 0.2;
+torusKnotPhongMaterial.specular = new THREE.Color(0x000ff);
+torusKnotPhongMaterial.shininess = 100;
+const torusKnotPhongMesh = new THREE.Mesh(
+  torusKnotGeometry,
+  torusKnotPhongMaterial
+);
+torusKnotPhongMesh.castShadow = true;
+torusKnotPhongMesh.receiveShadow = true;
+torusKnotPhongMesh.position.set(0, 1, 0);
+scene.add(torusKnotPhongMesh);
+
+const torusKnotBasicMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+const torusKnotBasicMesh = new THREE.Mesh(
+  torusKnotGeometry,
+  torusKnotBasicMaterial
+);
+torusKnotBasicMesh.castShadow = true;
+torusKnotBasicMesh.receiveShadow = true;
+torusKnotBasicMesh.position.set(2, 1, 0);
+scene.add(torusKnotBasicMesh);
+
+const torusKnotDepthMaterial = new THREE.MeshDepthMaterial({ color: 0xffffff });
+torusKnotDepthMaterial.opacity = 0.5;
+const torusKnotDepthMesh = new THREE.Mesh(
+  torusKnotGeometry,
+  torusKnotDepthMaterial
+);
+torusKnotDepthMesh.castShadow = true;
+torusKnotDepthMesh.receiveShadow = true;
+torusKnotDepthMesh.position.set(4, 1, 0);
+scene.add(torusKnotDepthMesh);
+
+const textureLoader = new THREE.TextureLoader();
+// textureLoader.load("/threejs.webp", (texture) => {
+//   const textureBoxGeometry = new THREE.BoxGeometry(1, 1, 1);
+//   const textureMaterial = new THREE.MeshStandardMaterial({ map: texture });
+//   const textureMesh = new THREE.Mesh(textureBoxGeometry, textureMaterial);
+//   textureMesh.castShadow = true;
+//   textureMesh.receiveShadow = true;
+//   textureMesh.position.set(0, 0.5, 2);
+//   scene.add(textureMesh);
+// });
+
+const texture = await textureLoader.loadAsync("/threejs.webp");
+const textureBoxGeometry = new THREE.BoxGeometry(1, 1, 1);
+const textureMaterial = new THREE.MeshStandardMaterial({ map: texture });
+const textureMesh = new THREE.Mesh(textureBoxGeometry, textureMaterial);
+textureMesh.castShadow = true;
+textureMesh.receiveShadow = true;
+textureMesh.position.set(0, 0.5, 2);
+scene.add(textureMesh);
+
 // // Box Geometry
 // const geometry = new THREE.BoxGeometry(1, 1, 1);
 // const material = new THREE.MeshStandardMaterial({ color: 0xff0000 });
@@ -229,6 +284,7 @@ window.addEventListener("resize", () => {
 const render = () => {
   renderer.render(scene, camera);
   requestAnimationFrame(render);
+  textureMesh.rotation.y += 0.01;
 };
 
 render();
