@@ -44,21 +44,27 @@ scene.add(boxMesh);
 // scene.add(ambientLight)
 
 // DirectionalLight
-// const directionalLight = new THREE.DirectionalLight(0xffffff,5)
+// const directionalLight = new THREE.DirectionalLight(0xffffff, 5);
 // directionalLight.castShadow = true;
-// directionalLight.position.set(3,4,5)
-// directionalLight.lookAt(0,0,0)
-// scene.add(directionalLight)
-// const directionalLightHelper = new THREE.DirectionalLightHelper(directionalLight, 1)
-// scene.add(directionalLightHelper)
+// directionalLight.position.set(3, 4, 5);
+// directionalLight.lookAt(0, 0, 0);
+// scene.add(directionalLight);
+// const directionalLightHelper = new THREE.DirectionalLightHelper(
+//   directionalLight,
+//   1
+// );
+// scene.add(directionalLightHelper);
 
 // HemisphereLight
 // const hemisphereLight = new THREE.HemisphereLight(0xb4a912, 0x12f34f, 5);
-// hemisphereLight.position.set(0,1,0)
-// hemisphereLight.lookAt(0,0,0)
-// scene.add(hemisphereLight)
-// const hemisphereLightHelper = new THREE.HemisphereLightHelper(hemisphereLight,1)
-// scene.add(hemisphereLightHelper)
+// hemisphereLight.position.set(0, 1, 0);
+// hemisphereLight.lookAt(0, 0, 0);
+// scene.add(hemisphereLight);
+// const hemisphereLightHelper = new THREE.HemisphereLightHelper(
+//   hemisphereLight,
+//   1
+// );
+// scene.add(hemisphereLightHelper);
 
 // const pointLight = new THREE.PointLight(0xffffff, 5, 5, 4);
 // pointLight.castShadow = true;
