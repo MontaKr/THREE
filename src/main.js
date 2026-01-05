@@ -104,7 +104,12 @@ scene.add(directionalLightHelper);
 
 // // Orbit Controls
 const orbitControls = new OrbitControls(camera, renderer.domElement);
-orbitControls.update();
+orbitControls.enableDamping = true;
+orbitControls.dampingFactor = 0.03;
+orbitControls.enableZoom = true;
+orbitControls.enablePan = true;
+orbitControls.enableRotate = true;
+orbitControls.autoRotate = true;
 
 // Resize Handler
 window.addEventListener("resize", () => {
@@ -118,7 +123,7 @@ window.addEventListener("resize", () => {
 const render = () => {
   renderer.render(scene, camera);
   requestAnimationFrame(render);
-  textureMesh.rotation.y += 0.01;
+  orbitControls.update();
 };
 
 render();
